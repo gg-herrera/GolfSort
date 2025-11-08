@@ -72,6 +72,7 @@ def randomnumlist(length : int) -> list[int]:
 def randomWordList(length : int) -> list[str]:
     with open('wordlist.txt', 'r') as file:
         return random.sample(file.read().split('\n'), length)
+        
 def main() -> None:
     os.system('cls' if os.name == 'nt' else 'clear')
     option = inquirer.List(
@@ -122,7 +123,13 @@ def main() -> None:
         
     else:
         random_list = smartdeconstruction(input(colored("Enter your custom vector items separated by commas -> ", 'yellow')))
-    
+        from golf import golfsort
+                
+        start = time.time()
+                
+        finalList = golfsort(random_list)
+                
+        end = time.time()
 
     print(colored(f"Sorted List is -> {finalList}", 'green'))
     print(colored(f"Time taken to sort is -> {(end - start):.10f} seconds", 'cyan'))

@@ -72,9 +72,7 @@ def golfsort(unsorted_list: list[int]) -> list[int]:
             leftSide.append(working_list[0])
         else:
             rightSide.append(working_list[0])
-    
     pairs = divideToPairs(leftSide, rightSide)
-
     bubbleGolfSort(pairs)
     
     result = [x for pair in pairs for x in pair]
